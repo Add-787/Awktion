@@ -1,2 +1,2 @@
 # Awktion
-Auction game implemented in botnet and angular
+Auction game implemented in dotnet and angular
