@@ -1,12 +1,9 @@
-﻿<Properties StartupConfiguration="{E693600A-F375-4666-8172-B05B2CA1E4E7}|http">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Awktion.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Awktion.Tests FirstBuild="True" />
+﻿<Properties StartupConfiguration="{9B797A0B-ECB1-4EBD-BE59-C9DBEFD0A49E}|Default">
+  <MonoDevelop.Ide.ItemProperties.Awktion.Tests PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Awktion.API FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Awktion.API/Program.cs" Line="1" Column="1" />
@@ -31,4 +28,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints />
 </Properties>
