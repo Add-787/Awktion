@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  awktion.api:
+    image: ${DOCKER_REGISTRY-}awktion
+    build:
+      context: .
+      dockerfile: Awktion.API/Dockerfile

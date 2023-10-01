@@ -1,8 +1,9 @@
-﻿<Properties StartupConfiguration="{9B797A0B-ECB1-4EBD-BE59-C9DBEFD0A49E}|Default">
+﻿<Properties StartupConfiguration="{0E7C53FA-DE66-47F6-8556-DB4901F44AEA}|Default">
   <MonoDevelop.Ide.ItemProperties.Awktion.Tests PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.Awktion.API FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Awktion.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench>
     <Files>
