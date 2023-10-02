@@ -1,8 +1,17 @@
 version: '3.4'
 
 services:
+  db:
+    image: postgres
+
+  pgadmin:
+    image: dpage/pgadmin4
+
   awktion.api:
     image: ${DOCKER_REGISTRY-}awktion
     build:
       context: .
       dockerfile: Awktion.API/Dockerfile
+
+volumes:
+    db_data:

@@ -1,23 +1,29 @@
 ﻿<Properties StartupConfiguration="{0E7C53FA-DE66-47F6-8556-DB4901F44AEA}|Default">
-  <MonoDevelop.Ide.ItemProperties.Awktion.Tests PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.Awktion.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.Awktion.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="docker-compose.yml">
     <Files>
-      <File FileName="Awktion.API/Program.cs" Line="1" Column="1" />
-      <File FileName="Awktion.Tests/UnitTest1.cs" Line="1" Column="25" />
-      <File FileName="Awktion.Tests/Usings.cs" Line="1" Column="1" />
+      <File FileName="Awktion.Tests/UnitTest1.cs" />
+      <File FileName="Awktion.Tests/Usings.cs" />
+      <File FileName="Awktion.API/Program.cs" Line="43" Column="1" />
+      <File FileName="Awktion.API/Controllers/WeatherForecastController.cs" />
+      <File FileName="Awktion.API/WeatherForecast.cs" Line="1" Column="1" />
+      <File FileName="Awktion.API/Properties/launchSettings.json" />
+      <File FileName="Awktion.API/Dockerfile" />
+      <File FileName="docker-compose.yml" Line="6" Column="1" />
+      <File FileName="docker-compose.override.yml" Line="15" Column="41" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Awktion" expanded="True">
-            <Node name="Awktion.Tests" expanded="True">
-              <Node name="ConnectedServicesFolder" selected="True" />
-              <Node name="Dependencies" expanded="True" />
+          <Node name="Awktion" expanded="True" selected="True">
+            <Node name="Awktion.Tests" expanded="True" />
+            <Node name="docker-compose" expanded="True">
+              <Node name="docker-compose.yml" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -29,5 +35,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Program.cs" relfile="Awktion.API/Program.cs" line="23" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
