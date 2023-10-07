@@ -45,6 +45,10 @@
               "target": "Package",
               "version": "[7.0.3, )"
             },
+            "Microsoft.TypeScript.MSBuild": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
