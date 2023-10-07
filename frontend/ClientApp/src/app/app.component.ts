@@ -1,3 +1,4 @@
+import { RealtimeService } from './services/realtime.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ClientApp';
+
+  constructor(public realTimeService: RealtimeService) {
+    this.realTimeService.startConnection();
+    this.realTimeService.addNotificationListener();
+  }
+  
 }
