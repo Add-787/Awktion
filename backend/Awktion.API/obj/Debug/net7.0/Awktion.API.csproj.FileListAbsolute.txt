@@ -31,3 +31,36 @@
 /Users/adarshshetty/Projects/Awktion/backend/Awktion.API/obj/Debug/net7.0/Awktion.API.pdb
 /Users/adarshshetty/Projects/Awktion/backend/Awktion.API/obj/Debug/net7.0/Awktion.API.genruntimeconfig.cache
 /Users/adarshshetty/Projects/Awktion/backend/Awktion.API/obj/Debug/net7.0/ref/Awktion.API.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\appsettings.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Awktion.API.exe
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Awktion.API.deps.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Awktion.API.runtimeconfig.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Awktion.API.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Awktion.API.pdb
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.csproj.AssemblyReference.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.AssemblyInfoInputs.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.AssemblyInfo.cs
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.csproj.CoreCompileInputs.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets\msbuild.Awktion.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Awktion.API.props
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Awktion.API.props
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Awktion.API.props
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\scopedcss\bundle\Awktion.API.styles.css
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.csproj.CopyComplete
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\refint\Awktion.API.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.pdb
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\Awktion.API.genruntimeconfig.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.API\obj\Debug\net7.0\ref\Awktion.API.dll

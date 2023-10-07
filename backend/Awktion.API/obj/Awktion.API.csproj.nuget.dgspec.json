@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Awktion.API.csproj": {}
+    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {}
   },
   "projects": {
-    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Awktion.API.csproj": {
+    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Awktion.API.csproj",
+        "projectUniqueName": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
         "projectName": "Awktion.API",
-        "projectPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Awktion.API.csproj",
-        "packagesPath": "/Users/adarshshetty/.nuget/packages/",
-        "outputPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/obj/",
+        "projectPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
+        "packagesPath": "C:\\Users\\Adarsh Shetty\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/adarshshetty/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Adarsh Shetty\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -66,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/7.0.200/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
