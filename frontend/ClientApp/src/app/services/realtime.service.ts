@@ -26,4 +26,5 @@ export class RealtimeService {
       console.log("Message got by client");
     })
   }
+
 }

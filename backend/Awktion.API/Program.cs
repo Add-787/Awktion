@@ -1,9 +1,15 @@
 using Awktion.API.Hubs;
-using Microsoft.AspNetCore.SignalR;
+using Awktion.API.Middleware;
+using Awktion.API.Models;
+using Microsoft.AspNet.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<RoomDb>(options => options.UseInMemoryDatabase("rooms"));
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -21,11 +27,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+GlobalHost.HubPipeline.AddModule(new HubLogging());
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Awktion API V1");
+    });
 }
 
 var summaries = new[]
@@ -48,9 +59,21 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
+app.MapGet("/rooms", async (RoomDb db) => { await db.Rooms.ToListAsync(); });
+
+app.MapPost("/room", async (RoomDb db, Room room) =>
+{
+    await db.Rooms.AddAsync(room);
+    await db.SaveChangesAsync();
+
+});
+
+app.MapHub<RoomHub>("/room");
 app.MapHub<NotificationHub>("/notify");
 
 app.UseCors("NewPolicy");
+
+
 
 app.Run();
 
