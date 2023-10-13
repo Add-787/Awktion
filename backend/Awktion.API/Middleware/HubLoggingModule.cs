@@ -13,5 +13,9 @@ public class HubLogging : HubPipelineModule
         return base.OnBeforeOutgoing(context);
     }
 
+    protected override void OnIncomingError(ExceptionContext exceptionContext, IHubIncomingInvokerContext invokerContext)
+    {
+        base.OnIncomingError(exceptionContext, invokerContext);
+    }
 
 }

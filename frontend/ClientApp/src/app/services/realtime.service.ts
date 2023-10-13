@@ -12,7 +12,7 @@ export class RealtimeService {
 
   public startConnection = () => {
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5265/notify')
+      .withUrl('http://localhost:5265/room')
       .build();
 
     this.connection
@@ -21,9 +21,9 @@ export class RealtimeService {
       .catch(err => console.log('Error while starting connection: ' + err));
   }
 
-  public addNotificationListener = () => {
-    this.connection.on("NotificationReceived", (message) => {
-      console.log("Message got by client");
+  public addRefreshListener = () => {
+    this.connection.on("GetRooms", () => {
+      console.log("Client refreshing data");
     })
   }
 

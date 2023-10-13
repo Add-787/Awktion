@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {}
+    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {
+    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
+        "projectUniqueName": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
         "projectName": "Awktion.API",
-        "projectPath": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
+        "projectPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\Awktion.API.csproj",
         "packagesPath": "C:\\Users\\Adarsh Shetty\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\obj\\",
+        "outputPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

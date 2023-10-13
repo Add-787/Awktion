@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(public realTimeService: RealtimeService) {
     this.realTimeService.startConnection();
-    this.realTimeService.addNotificationListener();
+    this.realTimeService.addRefreshListener();
   }
-  
+
 }

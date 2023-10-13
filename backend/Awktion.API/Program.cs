@@ -2,6 +2,9 @@ using Awktion.API.Hubs;
 using Awktion.API.Middleware;
 using Awktion.API.Models;
 using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -59,12 +62,18 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
-app.MapGet("/rooms", async (RoomDb db) => { await db.Rooms.ToListAsync(); });
+app.MapGet("/rooms", async (RoomDb db) => { 
+    var rooms = await db.Rooms.ToListAsync();
+    return rooms;
+    // return rooms;
+});
 
-app.MapPost("/room", async (RoomDb db, Room room) =>
+app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClient> hubContext) =>
 {
     await db.Rooms.AddAsync(room);
     await db.SaveChangesAsync();
+    await hubContext.Clients.All.GetRooms();
+    return Results.Created($"/room/{room.Id}", room);
 
 });
 
