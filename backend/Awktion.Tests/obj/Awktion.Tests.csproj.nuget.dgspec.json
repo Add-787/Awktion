@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Tests\\Awktion.Tests.csproj": {}
+    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Tests/Awktion.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Tests\\Awktion.Tests.csproj": {
+    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Tests/Awktion.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Tests\\Awktion.Tests.csproj",
+        "projectUniqueName": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Tests/Awktion.Tests.csproj",
         "projectName": "Awktion.Tests",
-        "projectPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Tests\\Awktion.Tests.csproj",
-        "packagesPath": "C:\\Users\\Adarsh Shetty\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Tests\\obj\\",
+        "projectPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Tests/Awktion.Tests.csproj",
+        "packagesPath": "/Users/adarshshetty/.nuget/packages/",
+        "outputPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Tests/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Adarsh Shetty\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/adarshshetty/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -78,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -2,15 +2,20 @@ using Awktion.API.Hubs;
 using Awktion.API.Middleware;
 using Awktion.API.Models;
 using Microsoft.AspNet.SignalR;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connection = builder.Configuration.GetConnectionString("PostgreSQL");
+
 // Add services to the container.
-builder.Services.AddDbContext<RoomDb>(options => options.UseInMemoryDatabase("rooms"));
+builder.Services.AddDbContext<RoomDb>(optionsBuilder => optionsBuilder.UseNpgsql(connection));
+builder.Services.AddDbContext<UserDb>(optionsBuilder => optionsBuilder.UseNpgsql(connection));
+builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<UserDb>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -20,7 +25,7 @@ builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("NewPolicy", builder => builder
+    options.AddPolicy("DevPolicy", builder => builder
         .WithOrigins("http://localhost:4200")
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -65,7 +70,6 @@ app.MapGet("/weatherforecast", () =>
 app.MapGet("/rooms", async (RoomDb db) => { 
     var rooms = await db.Rooms.ToListAsync();
     return rooms;
-    // return rooms;
 });
 
 app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClient> hubContext) =>
@@ -73,14 +77,14 @@ app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClien
     await db.Rooms.AddAsync(room);
     await db.SaveChangesAsync();
     await hubContext.Clients.All.GetRooms();
-    return Results.Created($"/room/{room.Id}", room);
+    return Results.Created($"/room/{room.ID}", room);
 
 });
 
 app.MapHub<RoomHub>("/room");
 app.MapHub<NotificationHub>("/notify");
 
-app.UseCors("NewPolicy");
+app.UseCors("DevPolicy");
 
 
 

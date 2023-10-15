@@ -1,8 +1,6 @@
 namespace Awktion.API.Models;
 
-public record Player {
-
-    
+public class Player {
     public required string Name { get; set; }
     public required Position Pos { get; set; }
     public required int BasePrice { get; set; }

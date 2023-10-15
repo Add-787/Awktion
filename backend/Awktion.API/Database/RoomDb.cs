@@ -4,5 +4,5 @@ using Microsoft.EntityFrameworkCore;
 class RoomDb : DbContext 
 {
     public RoomDb(DbContextOptions options) : base(options) { }
-    public DbSet<Room> Rooms { get; set; } = null!;
+    public DbSet<Room> Rooms { get; set; }
 }
