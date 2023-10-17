@@ -7,6 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Http.HttpResults;
+using MiniValidation;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +24,23 @@ builder.Services.AddDbContext<RoomDb>(optionsBuilder => optionsBuilder.UseNpgsql
 builder.Services.AddDbContext<UserDb>(optionsBuilder => optionsBuilder.UseNpgsql(connection));
 builder.Services.AddIdentity<User,IdentityRole>().AddEntityFrameworkStores<UserDb>();
 
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options => 
+{
+    options.TokenValidationParameters = new TokenValidationParameters {
+        ValidateIssuer = true,
+        ValidIssuer = "http://localhost:5265"
+    };
 
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddCors(options =>
 {
@@ -35,6 +54,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Middleware for hub requests
 GlobalHost.HubPipeline.AddModule(new HubLogging());
 
 // Configure the HTTP request pipeline.
@@ -70,7 +90,9 @@ app.MapGet("/weatherforecast", () =>
 app.MapGet("/rooms", async (RoomDb db) => { 
     var rooms = await db.Rooms.ToListAsync();
     return rooms;
-});
+})
+.WithName("GetRooms")
+.WithOpenApi();
 
 app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClient> hubContext) =>
 {
@@ -78,7 +100,38 @@ app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClien
     await db.SaveChangesAsync();
     await hubContext.Clients.All.GetRooms();
     return Results.Created($"/room/{room.ID}", room);
+})
+.WithName("GetRoom")
+.WithOpenApi();
 
+app.MapPost("/register", async ([FromBody] RegisterForm form, UserManager<User> userManager,IMapper mapper) => {
+
+    if(!MiniValidator.TryValidate(form, out var errors))
+    {
+        return Results.ValidationProblem(errors);
+    }
+
+    var user = mapper.Map<User>(form);
+
+    var res = await userManager.CreateAsync(user, form.Password!);
+    if(!res.Succeeded)
+    {
+        var errorDescs = res.Errors.Select(e => e.Description);
+        return Results.BadRequest(new RegisterResponse
+        {
+            IsSuccessful = false,
+            Errors = errorDescs
+        });
+    }
+
+    return Results.Ok(new RegisterResponse {
+        IsSuccessful = true
+    });
+
+});
+
+app.MapGet("/logout", () => {
+    // Results.SignOut(authenticationSchemes: new List<string>() { "cookie" });
 });
 
 app.MapHub<RoomHub>("/room");
