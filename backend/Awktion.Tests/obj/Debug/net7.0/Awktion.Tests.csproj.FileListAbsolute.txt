@@ -195,3 +195,6 @@ C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\obj\Debug
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\obj\Debug\net7.0\Awktion.Tests.pdb
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\obj\Debug\net7.0\Awktion.Tests.genruntimeconfig.cache
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\obj\Debug\net7.0\ref\Awktion.Tests.dll
+c:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\bin\Debug\net7.0\CoverletSourceRootsMapping
+c:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\bin\Debug\net7.0\Awktion.Domain.dll
+c:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Tests\bin\Debug\net7.0\Awktion.Domain.pdb

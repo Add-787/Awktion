@@ -3,3 +3,10 @@ C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debu
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\Awktion.Domain.AssemblyInfoInputs.cache
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\Awktion.Domain.AssemblyInfo.cs
 C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\Awktion.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\bin\Debug\net7.0\Awktion.Domain.deps.json
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\bin\Debug\net7.0\Awktion.Domain.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\bin\Debug\net7.0\Awktion.Domain.pdb
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\Awktion.Domain.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\refint\Awktion.Domain.dll
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\Awktion.Domain.pdb
+C:\Users\Adarsh Shetty\Projects\Personal\Awktion\backend\Awktion.Domain\obj\Debug\net7.0\ref\Awktion.Domain.dll

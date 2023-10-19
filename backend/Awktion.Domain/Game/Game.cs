@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using Awktion.Domain.Models;
 
-namespace Awktion.Domain;
+namespace Awktion.Domain.Game;
 
 public class Game
 {
@@ -11,6 +11,7 @@ public class Game
     private readonly Dictionary<User, int> Balances = new();
     private readonly Dictionary<User,IList<(Player,int)>> Squads = new();
     private readonly Dictionary<User, BidStatus> Status = new();
+    private CountDownTimer Timer;
 
     // Round specific details.
     private int CurrentRound = 0;
@@ -19,7 +20,6 @@ public class Game
     private Player? Picked = null;
     private int HighestBid = 0;
     private bool CanBid = false;
-
     private int NoOfUsers { get; set; }
 
 
@@ -59,8 +59,14 @@ public class Game
         Room.CloseRoom();
         InitBalances();
         InitSquads();
+        CreateTimer();
 
         NewRound();
+    }
+
+    private void CreateTimer()
+    {
+        Timer = new CountDownTimer(Settings.TimeSpan);
     }
 
     private void NewRound()
@@ -88,6 +94,7 @@ public class Game
         Picked = player;
         HighestBid = player.BasePrice;
         InitStatuses();
+        Timer.RestartTimer();
         CanBid = true;
 
         // Broadcast Player has been picked annd bidding can start;
