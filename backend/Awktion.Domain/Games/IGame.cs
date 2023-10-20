@@ -2,7 +2,7 @@
 
 using Awktion.Domain.Models;
 
-namespace Awktion.API.Domain.Game;
+namespace Awktion.API.Domain.Games;
 
 public interface IGame
 {

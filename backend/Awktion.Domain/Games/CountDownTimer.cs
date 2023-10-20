@@ -1,4 +1,4 @@
-namespace Awktion.Domain.Game;
+namespace Awktion.Domain.Games;
 
 public class CountDownTimer
 {
@@ -25,7 +25,7 @@ public class CountDownTimer
             {
                 await Task.Delay(1000);
                 current = current.Subtract(TimeSpan.FromSeconds(1));
-                TickOccurredArgs args = new TickOccurredArgs
+                TickOccurredArgs args = new()
                 {
                     Minutes = current.Minutes,
                     Seconds = current.Seconds

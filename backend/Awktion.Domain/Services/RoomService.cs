@@ -8,7 +8,6 @@ public class RoomService
     private readonly Repo<Room> RoomRepo;
     private readonly Repo<Player> PlayerRepo;
 
-
     public RoomService(Repo<Room> roomRepo, Repo<Player> playerRepo)
     {
         RoomRepo = roomRepo;

@@ -2,12 +2,12 @@
 using System.Runtime.InteropServices;
 using Awktion.Domain.Models;
 
-namespace Awktion.Domain.Game;
+namespace Awktion.Domain.Games;
 
 public class Game
 {
-    public Room Room { get; set; }
     private GameSettings Settings { get; set;  }
+    private IList<User> Users { get; set; }
     private readonly Dictionary<User, int> Balances = new();
     private readonly Dictionary<User,IList<(Player,int)>> Squads = new();
     private readonly Dictionary<User, BidStatus> Status = new();
@@ -20,19 +20,24 @@ public class Game
     private Player? Picked = null;
     private int HighestBid = 0;
     private bool CanBid = false;
-    private int NoOfUsers { get; set; }
-
-
-    public Game(Room room, GameSettings settings)
+    private int NoOfUsers 
     {
-        Room = room;
+        get
+        {
+            return Users.Count;
+        }
+    }
+
+
+    public Game(GameSettings settings, IList<User> users)
+    {
         Settings = settings;
-        NoOfUsers = Room.GetUsers().Count;
+        Users = users;
     }
 
     public void InitBalances()
     {
-        foreach(User user in Room.GetUsers())
+        foreach(User user in Users)
         {
             Balances.Add(user, Settings.TotalBalance);
         }
@@ -40,7 +45,7 @@ public class Game
 
     public void InitSquads()
     {
-        foreach(User user in Room.GetUsers())
+        foreach(User user in Users)
         {
             Squads.Add(user,new List<(Player,int)>());
         }
@@ -48,7 +53,7 @@ public class Game
 
     public void InitStatuses()
     {
-        foreach(User user in Room.GetUsers())
+        foreach(User user in Users)
         {
             Status.Add(user, BidStatus.Open);
         }
@@ -56,7 +61,7 @@ public class Game
 
     public void StartGame()
     {
-        Room.CloseRoom();
+        // Room.CloseRoom();
         InitBalances();
         InitSquads();
         CreateTimer();
@@ -71,7 +76,7 @@ public class Game
 
     private void NewRound()
     {
-        Picking = Room.GetUsers().ElementAt(CurrentRound % NoOfUsers);
+        Picking = Users.ElementAt(CurrentRound % NoOfUsers);
 
         // Broadcast start of new Round
         OnRoundStarted(new EventArgs());
@@ -143,7 +148,7 @@ public class Game
         // OnPlayerOut(..)
 
         // Check if all are out for bidding on current player.
-        var count = Room.GetUsers().Where(u => Status[u] == BidStatus.Open).ToList().Count;
+        var count = Users.Where(u => Status[u] == BidStatus.Open).ToList().Count;
 
 
         if(CurrentWinner != null && Status[CurrentWinner!] == BidStatus.Open && count == 1)

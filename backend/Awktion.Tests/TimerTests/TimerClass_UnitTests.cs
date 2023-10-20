@@ -1,6 +1,6 @@
 
 
-using Awktion.Domain.Game;
+using Awktion.Domain.Games;
 
 namespace Awktion.Tests.TimerTests;
 

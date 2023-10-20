@@ -1,3 +1,4 @@
+using Awktion.Domain.Games;
 using Awktion.Domain.Models;
 
 namespace Awktion.Domain;
@@ -9,6 +10,8 @@ namespace Awktion.Domain;
 public class Room {
     public int Id { get; set; }
     public string Name { get; set; }
+
+    public Game? Game { get; set; } = null;
     private List<User> Users { get; set; } = new();
     public DateTime CreatedAt { get; set; } = DateTime.Now;
     public RoomStatus Status { get; set; } = RoomStatus.Open;
@@ -29,7 +32,7 @@ public class Room {
         Users.Add(user);
     }
 
-    public List<User> GetUsers() 
+    public IList<User> GetUsers() 
     {
         return Users;
     }
