@@ -59,9 +59,8 @@ public class Game
         }
     }
 
-    public void StartGame()
+    public void Start()
     {
-        // Room.CloseRoom();
         InitBalances();
         InitSquads();
         CreateTimer();

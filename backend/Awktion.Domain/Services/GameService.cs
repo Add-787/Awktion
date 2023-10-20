@@ -16,15 +16,8 @@ public class GameService
     {
         var room = RoomRepo.Get(roomId);
 
-        if(room.Game != null)
-        {
-            throw new Exception();
-        }
-
-        room.CloseRoom();
-
-        room.Game = new Game(settings,room.GetUsers());
-
-
+        room.StartGame(settings);
     }
+
+    
 }

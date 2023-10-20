@@ -10,7 +10,7 @@ public class GameSettings
     public TimeSpan TimeSpan { get; set; } = new TimeSpan(0, 1, 0);
     public NoBalance Condition { get; set; } = NoBalance.IncompleteSquad;
     public List<Player> AvailablePlayers { get; set; } = new();
-    public int TotalBalance { get; } = 100;
+    public int TotalBalance { get; } = 110;
     public int MaxPlayers { get; set; } = 11;
 
 }

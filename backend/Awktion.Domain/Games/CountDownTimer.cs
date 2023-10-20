@@ -32,6 +32,7 @@ public class CountDownTimer
                 };
                 OnTickOccurred(args);
             }
+            OnTimerFinished(new EventArgs());
         });
 
         Counter.Start();
@@ -53,6 +54,15 @@ public class CountDownTimer
         public int Seconds { get; set; }
     }
 
+    protected virtual void OnTimerFinished(EventArgs e)
+    {
+        EventHandler<EventArgs> handler = TimerFinished;
+
+        if(handler != null)
+        {
+            handler(this, e);
+        }
+    }
     public event EventHandler<EventArgs> TimerFinished;
     
 

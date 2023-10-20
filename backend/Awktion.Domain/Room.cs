@@ -14,7 +14,7 @@ public class Room {
     public Game? Game { get; set; } = null;
     private List<User> Users { get; set; } = new();
     public DateTime CreatedAt { get; set; } = DateTime.Now;
-    public RoomStatus Status { get; set; } = RoomStatus.Open;
+    private RoomStatus Status { get; set; } = RoomStatus.Open;
 
     public Room(string name)
     {
@@ -44,6 +44,19 @@ public class Room {
         {
             Status = RoomStatus.Closed;
         }
+    }
+
+    public bool StartGame(GameSettings settings)
+    {
+        CloseRoom();
+
+        if(Game != null) { return false; }
+
+        Game = new Game(settings, Users);
+
+        Game.Start();
+
+        return true;
     }
 
 }

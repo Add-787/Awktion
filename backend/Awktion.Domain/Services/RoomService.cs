@@ -30,6 +30,4 @@ public class RoomService
         room.AddUser(user);
     }
 
-
-
 }
