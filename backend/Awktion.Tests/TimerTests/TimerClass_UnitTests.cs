@@ -122,7 +122,6 @@ public class CountDownTimerClass_UnitTests
         Assert.True(currMin == 0, $"Wrong value for current value of minutes - Showing {currMin} minutes");
         Assert.True(currSec == 59, $"Wrong value for current value of seconds - Showing {currSec} seconds");
 
-
     }
 
 

@@ -10,11 +10,17 @@ public class Room {
     public int Id { get; set; }
     public string Name { get; set; }
     private List<User> Users { get; set; } = new();
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
     public RoomStatus Status { get; set; } = RoomStatus.Open;
 
     public Room(string name)
     {
+        Name = name;
+    }
+
+    public Room(int id, string name)
+    {
+        Id = id;
         Name = name;
     }
 

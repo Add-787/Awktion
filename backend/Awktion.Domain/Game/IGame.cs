@@ -9,7 +9,4 @@ public interface IGame
     public void StartGame(GameSettings settings);
     public void NewRound();
 
-
-
-
 }
