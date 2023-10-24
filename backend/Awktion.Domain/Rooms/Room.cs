@@ -32,7 +32,7 @@ public class Room {
         Users.Add(user);
     }
 
-    public IList<User> GetUsers() 
+    public List<User> GetUsers() 
     {
         return Users;
     }
