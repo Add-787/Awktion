@@ -1,7 +1,7 @@
 using Awktion.Domain.Games;
 using Awktion.Domain.Models;
 
-namespace Awktion.Domain;
+namespace Awktion.Domain.Rooms;
 
 /// <summary>
 /// Room class will be used as the class to create the signalR groups.
@@ -46,16 +46,13 @@ public class Room {
         }
     }
 
-    public bool StartGame(GameSettings settings)
+    public bool StartGame()
     {
         CloseRoom();
 
-        if(Game != null) { return false; }
-
-        Game = new Game(settings, Users);
+        if(Game == null) { return false; }
 
         Game.Start();
-
         return true;
     }
 

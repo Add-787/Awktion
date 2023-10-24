@@ -1,5 +1,8 @@
 
-namespace Awktion.Domain.Repos;
+using Awktion.Domain.Repos;
+using Awktion.Domain.Rooms;
+
+namespace Awktion.Tests.Repos;
 
 /// <summary>
 /// Room repository for testing purposes.

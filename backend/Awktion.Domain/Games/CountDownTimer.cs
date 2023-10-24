@@ -9,7 +9,7 @@ public class CountDownTimer
         Time = time;
     }
 
-    public void RestartTimer()
+    public void Restart()
     {
 
         if(Counter != null && Counter.IsAlive)
@@ -38,7 +38,16 @@ public class CountDownTimer
         Counter.Start();
     }
 
-    protected virtual void OnTickOccurred(TickOccurredArgs e)
+    public void Stop()
+    {
+        if(Counter != null && Counter.IsAlive)
+        {
+            Counter.Join();
+        }
+
+    }
+
+    protected void OnTickOccurred(TickOccurredArgs e)
     {
         EventHandler<TickOccurredArgs> handler = TickOccurred;
 

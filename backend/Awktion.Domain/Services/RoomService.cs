@@ -1,9 +1,10 @@
 using Awktion.Domain.Models;
 using Awktion.Domain.Repos;
+using Awktion.Domain.Rooms;
 
 namespace Awktion.Domain.Services;
 
-public class RoomService
+public class RoomService : IRoomService
 {
     private readonly Repo<Room> RoomRepo;
     private readonly Repo<Player> PlayerRepo;

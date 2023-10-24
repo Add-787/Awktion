@@ -6,21 +6,20 @@ namespace Awktion.Domain.Games;
 
 public class Game
 {
-    private GameSettings Settings { get; set;  }
+    private GameSettings Settings { get; set; }
     private IList<User> Users { get; set; }
     private readonly Dictionary<User, int> Balances = new();
-    private readonly Dictionary<User,IList<(Player,int)>> Squads = new();
+    private readonly Dictionary<User, IList<(Player, int)>> Squads = new();
     private readonly Dictionary<User, BidStatus> Status = new();
     private CountDownTimer Timer;
 
     // Round specific details.
     private int CurrentRound = 0;
     private User? CurrentWinner = null;
-    private User? Picking = null;
     private Player? Picked = null;
     private int HighestBid = 0;
     private bool CanBid = false;
-    private int NoOfUsers 
+    private int NoOfUsers
     {
         get
         {
@@ -37,7 +36,7 @@ public class Game
 
     public void InitBalances()
     {
-        foreach(User user in Users)
+        foreach (User user in Users)
         {
             Balances.Add(user, Settings.TotalBalance);
         }
@@ -45,15 +44,15 @@ public class Game
 
     public void InitSquads()
     {
-        foreach(User user in Users)
+        foreach (User user in Users)
         {
-            Squads.Add(user,new List<(Player,int)>());
+            Squads.Add(user, new List<(Player, int)>());
         }
     }
 
     public void InitStatuses()
     {
-        foreach(User user in Users)
+        foreach (User user in Users)
         {
             Status.Add(user, BidStatus.Open);
         }
@@ -71,20 +70,23 @@ public class Game
     private void CreateTimer()
     {
         Timer = new CountDownTimer(Settings.TimeSpan);
+
     }
 
     private void NewRound()
     {
-        Picking = Users.ElementAt(CurrentRound % NoOfUsers);
-
-        // Broadcast start of new Round
-        OnRoundStarted(new EventArgs());
+        CurrentRound++;
+        // Broadcast start of new Round and provide the client user info on whose picking.
+        OnRoundStarted(new RoundStartedArgs {
+            Picking = Users.ElementAt(CurrentRound - 1 % NoOfUsers),
+            Round = CurrentRound
+        });
 
     }
 
     public bool PlayerPicked(Player player)
     {
-        if(Settings.AvailablePlayers.Contains(player))
+        if (Settings.AvailablePlayers.Contains(player))
         {
             StartBidding(player);
             return true;
@@ -98,33 +100,48 @@ public class Game
         Picked = player;
         HighestBid = player.BasePrice;
         InitStatuses();
-        Timer.RestartTimer();
+        Timer.Restart();
         CanBid = true;
 
-        // Broadcast Player has been picked annd bidding can start;
+        // Broadcast Player has been picked and bidding can start;
         OnBiddingStarted(new EventArgs());
-        
+
     }
 
     private void EndRound()
     {
         CurrentWinner = null;
         Picked = null;
-        Picking = null;
 
-        CurrentRound++;
+        if (CurrentRound < Settings.AvailablePlayers.Count)
+        {
+            NewRound();
+        }
 
-        // Broadcast end of current round
+        EndGame();
+    }
+
+    private void EndGame()
+    {
+        Timer.Stop();
+
+        // Broadcast that current game has ended.
+
     }
 
     public bool Bid(User user, int amount)
     {
-        if(!CanBid)
+        if (!CanBid)
         {
             return false;
         }
 
-        if(amount + HighestBid > Balances[user])
+        if (Picked == null)
+        {
+            return false;
+        }
+
+        if (amount + HighestBid > Balances[user])
         {
             return false;
         }
@@ -133,11 +150,15 @@ public class Game
         CurrentWinner = user;
 
         //Broadcast new bid placed.
-
-
+        OnNewBidPlaced(new NewBidPlacedArgs
+        {
+            User = CurrentWinner,
+            Player = Picked,
+            Amount = HighestBid
+        });
 
         return true;
-    } 
+    }
 
     public void PutDown(User user)
     {
@@ -149,43 +170,90 @@ public class Game
         // Check if all are out for bidding on current player.
         var count = Users.Where(u => Status[u] == BidStatus.Open).ToList().Count;
 
-
-        if(CurrentWinner != null && Status[CurrentWinner!] == BidStatus.Open && count == 1)
+        if (CurrentWinner != null && Status[CurrentWinner!] == BidStatus.Open && count == 1)
         {
             BidAccepted();
         }
 
-        EndRound();
-        
+        if(count == 0)
+        {
+            EndRound();
+        }
+
     }
 
     private void BidAccepted()
     {
 
-    }
-
-    protected virtual void OnRoundStarted(EventArgs e)
-    {
-        EventHandler<EventArgs> handler = RoundStarted;
-        if(handler != null)
+        if (Picked == null)
         {
-            handler(this, e);
+            return;
         }
+
+        Squads[CurrentWinner!].Add((Picked, HighestBid));
+
+        // Broadcast that player is sold.
+        OnPlayerSold(new PlayerSoldArgs
+        {
+            Player = Picked,
+            User = CurrentWinner!,
+            Price = HighestBid
+        });
+
+        // End current round.
+        EndRound();
+
     }
 
+    protected void OnRoundStarted(RoundStartedArgs args)
+    {
+        RoundStarted?.Invoke(this, args);
+    }
     public event EventHandler<EventArgs> RoundStarted;
 
     protected virtual void OnBiddingStarted(EventArgs e)
     {
-        EventHandler<EventArgs> handler = BiddingStarted;
-        if(handler != null)
-        {
-            handler(this, e);
-        }
+        BiddingStarted?.Invoke(this, e);
     }
-
     public event EventHandler<EventArgs> BiddingStarted;
 
+    protected void OnPlayerSold(PlayerSoldArgs args)
+    {
+        PlayerSold?.Invoke(this, args);
+    }
+    public event EventHandler<EventArgs> PlayerSold;
+
+    protected void OnNewBidPlaced(NewBidPlacedArgs args)
+    {
+        NewBidPlaced?.Invoke(this, args);
+    }
+    public event EventHandler<NewBidPlacedArgs> NewBidPlaced;
+
+    protected void OnGameEnded(EventArgs args)
+    {
+        GameEnded?.Invoke(this, args);
+    }
+    public event EventHandler<EventArgs> GameEnded;
+
+}
+
+public class RoundStartedArgs : EventArgs
+{
+    public required User Picking { get; set; }
+    public int Round;
+}
+
+public class PlayerSoldArgs : EventArgs
+{
+    public required User User { get; set; }
+    public required Player Player { get; set; }
+    public int Price { get; set; }
+}
+public class NewBidPlacedArgs : EventArgs 
+{
+    public required User User { get; set; }
+    public required Player Player { get; set; }
+    public int Amount { get; set; }
 }
 
 public enum BidStatus {

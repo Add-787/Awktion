@@ -1,6 +1,7 @@
 using Awktion.Domain.Games;
 using Awktion.Domain.Models;
 using Awktion.Domain.Repos;
+using Awktion.Domain.Rooms;
 
 namespace Awktion.Domain.Services;
 
@@ -12,12 +13,25 @@ public class GameService
         RoomRepo = roomRepo;
     }
 
-    public void StartGame(int roomId, GameSettings settings)
+    public void StartGame(int roomId)
     {
         var room = RoomRepo.Get(roomId);
 
-        room.StartGame(settings);
+        room.StartGame();
     }
+
+    public void CreateNewGame(int roomId, GameSettings settings)
+    {
+        var room = RoomRepo.Get(roomId);
+
+        //TODO: Put this inside room class.
+        var newGame = new Game(settings, room.GetUsers());
+
+        room.Game = newGame;
+
+    }
+
+
 
     
 }

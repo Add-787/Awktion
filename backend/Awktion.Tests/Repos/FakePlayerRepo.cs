@@ -1,6 +1,7 @@
 using Awktion.Domain.Models;
+using Awktion.Domain.Repos;
 
-namespace Awktion.Domain.Repos;
+namespace Awktion.Tests.Repos;
 
 /// <summary>
 /// Player Repository with default players for testing purposes.

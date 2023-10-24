@@ -20,7 +20,7 @@ public class CountDownTimerClass_UnitTests
         var timer = new CountDownTimer(new TimeSpan(0, 1, 0));
         var resetEvent = new ManualResetEventSlim(false);
 
-        timer.RestartTimer();
+        timer.Restart();
 
         timer.TickOccurred += (t, e) =>
         {
@@ -51,7 +51,7 @@ public class CountDownTimerClass_UnitTests
             }
         };
 
-        timer.RestartTimer();
+        timer.Restart();
 
         bool eventCompletedSuccessfully = await Task.WhenAny(eventCompleted.Task, Task.Delay(2500)) == eventCompleted.Task;
 
@@ -81,7 +81,7 @@ public class CountDownTimerClass_UnitTests
             }
         };
 
-        timer.RestartTimer();
+        timer.Restart();
 
         bool eventCompletedSuccessfully = await Task.WhenAny(eventCompleted.Task, Task.Delay(2500)) == eventCompleted.Task;
 
@@ -112,9 +112,9 @@ public class CountDownTimerClass_UnitTests
 
         };
 
-        timer.RestartTimer();
+        timer.Restart();
         await Task.Delay(2000);
-        timer.RestartTimer();
+        timer.Restart();
 
         bool eventCompletedSuccessfully = await Task.WhenAny(eventCompleted.Task, Task.Delay(3500)) == eventCompleted.Task;
 
