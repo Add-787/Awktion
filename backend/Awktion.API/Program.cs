@@ -104,6 +104,11 @@ app.MapPost("/room", async (RoomDb db, Room room, IHubContext<RoomHub,IRoomClien
 .WithName("GetRoom")
 .WithOpenApi();
 
+app.MapPost("/login", () =>
+{
+
+});
+
 app.MapPost("/register", async ([FromBody] RegisterForm form, UserManager<User> userManager,IMapper mapper) => {
 
     if(!MiniValidator.TryValidate(form, out var errors))

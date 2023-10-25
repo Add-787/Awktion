@@ -31,4 +31,9 @@ public class RoomService : IRoomService
         room.AddUser(user);
     }
 
+    public Room GetRoom(int roomId)
+    {
+        return RoomRepo.Get(roomId);
+    }
+
 }

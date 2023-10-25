@@ -13,14 +13,8 @@ public class GameService
         RoomRepo = roomRepo;
     }
 
-    public void StartGame(int roomId)
-    {
-        var room = RoomRepo.Get(roomId);
 
-        room.StartGame();
-    }
-
-    public void CreateNewGame(int roomId, GameSettings settings)
+    public void StartNewGame(int roomId, GameSettings settings)
     {
         var room = RoomRepo.Get(roomId);
 
@@ -28,6 +22,8 @@ public class GameService
         var newGame = new Game(settings, room.GetUsers());
 
         room.Game = newGame;
+
+        room.StartGame();
 
     }
 

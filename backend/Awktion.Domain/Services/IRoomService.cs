@@ -7,4 +7,7 @@ public interface IRoomService
 {
     public void CreateNewRoom(Room newRoom);
     public void AddUserToRoom(int roomId, User user);
+    public Room GetRoom(int roomId);
+
+
 }

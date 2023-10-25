@@ -1,15 +1,16 @@
 
 using System.Runtime.InteropServices;
 using Awktion.Domain.Models;
+using static Awktion.Domain.Games.CountDownTimer;
 
 namespace Awktion.Domain.Games;
 
 public class Game
 {
-    private GameSettings Settings { get; set; }
+    private readonly GameSettings Settings;
     private readonly List<User> Users;
 
-    private CountDownTimer Timer;
+    // private CountDownTimer Timer;
 
     // Round specific details.
     private int CurrentRound = 0;
@@ -61,7 +62,27 @@ public class Game
 
     private void CreateTimer()
     {
-        Timer = new CountDownTimer(Settings.TimeSpan);
+        // Timer = new CountDownTimer(Settings.TimeSpan);
+
+        // Timer.TickOccurred += (object sender, TickOccurredArgs args) =>
+        // {
+        //     Console.WriteLine($"Minutes: {args.Minutes}, Seconds: {args.Seconds}");
+        // };
+
+        // Timer.TimerFinished += (object sender, EventArgs args) =>
+        // {
+        //     if(CurrentWinner != null)
+        //     {
+        //         BidAccepted();
+        //     }
+
+        //     if(Picked != null)
+        //     {
+        //         Settings.AvailablePlayers.Remove(Picked);
+        //     }
+            
+        //     EndRound();
+        // };
 
     }
 
@@ -92,7 +113,7 @@ public class Game
         Picked = player;
         HighestBid = player.BasePrice;
         InitStatuses();
-        Timer.Restart();
+        // Timer.Restart();
         CanBid = true;
 
         // Broadcast Player has been picked and bidding can start;
@@ -117,7 +138,7 @@ public class Game
 
     private void EndGame()
     {
-        Timer.Stop();
+        // Timer.Stop();
 
         // Broadcast that current game has ended.
         OnGameEnded(EventArgs.Empty);
@@ -152,6 +173,8 @@ public class Game
             Amount = HighestBid
         });
 
+        // Timer.Restart();
+
         return true;
     }
 
@@ -183,7 +206,6 @@ public class Game
 
     private void BidAccepted()
     {
-
         if (Picked == null)
         {
             return;
