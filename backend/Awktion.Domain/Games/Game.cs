@@ -1,14 +1,15 @@
 
-using System.Runtime.InteropServices;
+using System.Timers;
 using Awktion.Domain.Models;
-using static Awktion.Domain.Games.CountDownTimer;
+using Timer = System.Timers.Timer;
 
 namespace Awktion.Domain.Games;
 
 public class Game
 {
-    private readonly GameSettings Settings;
+    private readonly Settings Settings;
     private readonly List<User> Users;
+    private readonly Timer CountDownTimer;
 
     // private CountDownTimer Timer;
 
@@ -27,10 +28,19 @@ public class Game
     }
 
 
-    public Game(GameSettings settings, List<User> users)
+    public Game(Settings settings, List<User> users)
     {
         Settings = settings;
         Users = users;
+
+        CountDownTimer = new Timer(TimeSpan.FromSeconds(1));
+        CountDownTimer.Elapsed +=  OnCountDownElapsed();
+    }
+
+    private ElapsedEventHandler OnCountDownElapsed()
+    {
+        var currTimespan = Settings.TimeSpan - TimeSpan.FromSeconds(1);
+        throw new NotImplementedException();
     }
 
     public void InitBalances()
@@ -55,35 +65,9 @@ public class Game
     {
         InitBalances();
         InitSquads();
-        CreateTimer();
+        CountDownTimer.Start();
 
         NewRound();
-    }
-
-    private void CreateTimer()
-    {
-        // Timer = new CountDownTimer(Settings.TimeSpan);
-
-        // Timer.TickOccurred += (object sender, TickOccurredArgs args) =>
-        // {
-        //     Console.WriteLine($"Minutes: {args.Minutes}, Seconds: {args.Seconds}");
-        // };
-
-        // Timer.TimerFinished += (object sender, EventArgs args) =>
-        // {
-        //     if(CurrentWinner != null)
-        //     {
-        //         BidAccepted();
-        //     }
-
-        //     if(Picked != null)
-        //     {
-        //         Settings.AvailablePlayers.Remove(Picked);
-        //     }
-            
-        //     EndRound();
-        // };
-
     }
 
     private void NewRound()

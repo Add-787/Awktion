@@ -15,7 +15,7 @@ public class GameClass_UnitTests
     {
         PlayerRepo = new FakePlayerRepo();
 
-        var settings = new GameSettings {
+        var settings = new Settings {
             AvailablePlayers = PlayerRepo.GetAll().ToList()
         };
 

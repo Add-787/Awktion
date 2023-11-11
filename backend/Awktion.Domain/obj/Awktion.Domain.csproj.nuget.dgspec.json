@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\Awktion.Domain.csproj": {}
+    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/Awktion.Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\Awktion.Domain.csproj": {
+    "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/Awktion.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\Awktion.Domain.csproj",
+        "projectUniqueName": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/Awktion.Domain.csproj",
         "projectName": "Awktion.Domain",
-        "projectPath": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\Awktion.Domain.csproj",
-        "packagesPath": "C:\\Users\\Adarsh Shetty\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\obj\\",
+        "projectPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/Awktion.Domain.csproj",
+        "packagesPath": "/Users/adarshshetty/.nuget/packages/",
+        "outputPath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Adarsh Shetty\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/adarshshetty/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -56,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/7.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }

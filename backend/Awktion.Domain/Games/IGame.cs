@@ -6,7 +6,7 @@ namespace Awktion.API.Domain.Games;
 
 public interface IGame
 {
-    public void StartGame(GameSettings settings);
+    public void StartGame(Settings settings);
     public void NewRound();
 
 }

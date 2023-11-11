@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pxA27TP2SDPLMjfUXFdXW8ofrztmQrtfJdJmmjbEE3I/6jxYI4p/QTLkNLRzWsUuCYgiNjMVM5O104xQ9Wghdg==",
+  "dgSpecHash": "Sjr5BeN/hLtG/SpdtRbV0BSbkwX3ICEFZLS/1CX7vz+f3bJlKn6pn4ASYq7LAcjgxisSyxAXIbcNRfm3YHsSIg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Adarsh Shetty\\Projects\\Personal\\Awktion\\backend\\Awktion.Domain\\Awktion.Domain.csproj",
+  "projectFilePath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Domain/Awktion.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

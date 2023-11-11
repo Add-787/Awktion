@@ -10,11 +10,9 @@ namespace Awktion.Domain.Rooms;
 public class Room {
     public int Id { get; set; }
     public string Name { get; set; }
-
-    public Game? Game { get; set; } = null;
     private List<User> Users { get; set; } = new();
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
-    private RoomStatus Status { get; set; } = RoomStatus.Open;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    private RoomStatus Status { get; set; } = RoomStatus.OpenRoom;
 
     public Room(string name)
     {
@@ -40,24 +38,14 @@ public class Room {
 
     public void CloseRoom()
     {
-        if(Status == RoomStatus.Open)
+        if(Status == RoomStatus.OpenRoom)
         {
-            Status = RoomStatus.Closed;
+            Status = RoomStatus.ClosedRoom;
         }
-    }
-
-    public bool StartGame()
-    {
-        CloseRoom();
-
-        if(Game == null) { return false; }
-
-        Game.Start();
-        return true;
     }
 
 }
 
 public enum RoomStatus{
-    Open,Closed
+    OpenRoom,GameStarted,ClosedRoom
 };
