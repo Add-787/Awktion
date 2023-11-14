@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Awktion.API.Hubs;
 using Awktion.API.Middleware;
 using Awktion.API.Models;
@@ -41,6 +42,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddControllers();
 
 builder.Services.AddCors(options =>
 {

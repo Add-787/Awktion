@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "kE5ExInK3c/5HRBREqUvmQ8LN00hrRg6hmZdUtit05+oVyK1r7DZcpb30V+kRXGB8umL0Y9iyXURFWhuBZeDGw==",
+  "success": true,
+  "projectFilePath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.Application/Awktion.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/adarshshetty/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/adarshshetty/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

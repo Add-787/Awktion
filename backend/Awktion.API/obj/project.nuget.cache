@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DSdwSfOFwhayt0ArCd7Rifb+IZEmvjPixbSOjaNMpNqNz9yQV21TVYXrSwlmeWsFKM0wQ7TQ/NC8d7M/jOqqZA==",
+  "dgSpecHash": "ImWo2sJb574C5081ImIA2O7uZc50kLLxsyGVybqvyz/gwRXCR9iwQq2q5KWFrF9/ln9pP5ZqHqvQ7pg50h1ETg==",
   "success": true,
   "projectFilePath": "/Users/adarshshetty/Projects/Awktion/backend/Awktion.API/Awktion.API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "/Users/adarshshetty/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/adarshshetty/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/adarshshetty/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/adarshshetty/.nuget/packages/mediatr/12.1.1/mediatr.12.1.1.nupkg.sha512",
+    "/Users/adarshshetty/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/adarshshetty/.nuget/packages/microsoft.aspnet.signalr.core/2.4.3/microsoft.aspnet.signalr.core.2.4.3.nupkg.sha512",
     "/Users/adarshshetty/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/adarshshetty/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

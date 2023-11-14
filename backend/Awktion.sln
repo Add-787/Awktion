@@ -11,6 +11,10 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awktion.Domain", "Awktion.Domain\Awktion.Domain.csproj", "{97F1F508-0234-4401-A2B3-14934AD886F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awktion.Persistence", "Awktion.Persistence\Awktion.Persistence.csproj", "{FBB26EEB-F094-49F2-94C6-43ED3135F666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Awktion.Application", "Awktion.Application\Awktion.Application.csproj", "{F1DC2090-489D-4A15-9CF3-A6E700F4444D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{97F1F508-0234-4401-A2B3-14934AD886F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F1F508-0234-4401-A2B3-14934AD886F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F1F508-0234-4401-A2B3-14934AD886F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB26EEB-F094-49F2-94C6-43ED3135F666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB26EEB-F094-49F2-94C6-43ED3135F666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB26EEB-F094-49F2-94C6-43ED3135F666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB26EEB-F094-49F2-94C6-43ED3135F666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1DC2090-489D-4A15-9CF3-A6E700F4444D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1DC2090-489D-4A15-9CF3-A6E700F4444D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1DC2090-489D-4A15-9CF3-A6E700F4444D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1DC2090-489D-4A15-9CF3-A6E700F4444D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
