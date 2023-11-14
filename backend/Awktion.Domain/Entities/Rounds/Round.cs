@@ -1,7 +1,7 @@
 using System.Diagnostics.Contracts;
 using System.Timers;
 using Awktion.Domain.Entities.Games.Handlers;
-using Awktion.Domain.Games;
+using Awktion.Domain.Entities.Players;
 using Timer = System.Timers.Timer;
 
 namespace Awktion.Domain.Entities.Rounds;
@@ -66,7 +66,7 @@ public class Round
         return No;
     }
 
-    public void Picked(Player player, TimeSpan currTime)
+    public void Picked(Player player)
     {
         _picked = player;
         _highestBid = player.BasePrice;
@@ -74,7 +74,7 @@ public class Round
         // Broadcast client to start bidding
         OnBiddingStarted?.Invoke();
 
-        RestartTimer(currTime);
+        RestartTimer(TimeSpan.FromMinutes(Mins));
     }
 
     private void RestartTimer(TimeSpan curr)

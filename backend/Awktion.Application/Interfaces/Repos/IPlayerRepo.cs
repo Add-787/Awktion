@@ -1,5 +1,5 @@
 using Awktion.Application.Interfaces.IRepos;
-using Awktion.Domain.Entities;
+using Awktion.Domain.Entities.Players;
 
 namespace Awktion.Application.Interfaces.Repos;
 

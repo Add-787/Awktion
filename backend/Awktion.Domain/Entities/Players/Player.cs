@@ -1,8 +1,8 @@
 using Awktion.Domain.Common;
 
-namespace Awktion.Domain.Entities;
+namespace Awktion.Domain.Entities.Players;
 
-public class Player  : BaseEntity {
+public class Player : BaseEntity {
     public required string Name { get; init; }
     public required Position Pos { get; init; }
     public required int BasePrice { get; init; }
@@ -14,9 +14,4 @@ public enum Position {
     FW,MID,DEF,GK
 }
 
-public enum PlayerStatus {
-    Waiting,
-    Unsold,
-    Sold,
-}
 

@@ -9,7 +9,7 @@ public static class ServiceExtensions
     {
         if(configuration.GetValue<bool>("UseInMemoryDatabase"))
         {
-            services.AddDbContext<>
+        
             
         }
 

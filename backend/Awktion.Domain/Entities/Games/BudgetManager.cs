@@ -2,7 +2,7 @@ namespace Awktion.Domain.Entities.Games;
 
 /// <summary>
 /// This class manages the budget of each user in the game.
-/// It is a dictionary with an user email being the key. 
+/// It is a dictionary with email being the key. 
 /// </summary>
 public class BudgetManager
 {
