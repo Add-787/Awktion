@@ -7,13 +7,8 @@ public class RoundBuilder
 
     public RoundBuilder()
     {
-        _no = 0;
-        _round = new();
-    }
-
-    public void AddRoundNo()
-    {
-        _round.No = _no;
+        _no = 1;
+        _round = new Round(_no);
     }
 
     public void AddTimer(int mins)
@@ -24,7 +19,7 @@ public class RoundBuilder
     public void Reset()
     {
         _no++;
-        _round = new Round();
+        _round = new Round(_no);
     }
 
     public Round GetRound()

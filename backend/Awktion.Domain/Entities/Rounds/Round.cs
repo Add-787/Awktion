@@ -13,20 +13,20 @@ namespace Awktion.Domain.Entities.Rounds;
 /// </summary>
 public class Round
 {
-    public int No { get; set; }
+    public readonly int No;
     private User? _winner;
     private int _highestBid;
     private Player? _picked;
-    public event Action? OnBiddingStarted;
+    public event Action<Player>? OnBiddingStarted;
     public event TickOccurredEventHandler OnTickOccurred;
     public event Action? OnTimerFinished;
     public event Action<Player>? OnPlayerUnsold;
     private Timer? timer;
     public int Mins { get; set; }
 
-    public Round()
+    public Round(int no)
     {
-
+        No = no;
     }
 
     public Round(int no, int mins)
@@ -73,7 +73,7 @@ public class Round
         _highestBid = player.BasePrice;
 
         // Broadcast client to start bidding
-        OnBiddingStarted?.Invoke();
+        OnBiddingStarted?.Invoke(_picked);
 
         RestartTimer(TimeSpan.FromMinutes(Mins));
     }

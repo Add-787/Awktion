@@ -10,11 +10,4 @@ public class PlayerSoldEventArgs : EventArgs
     public User Winner { get; init; }
     public Player SoldPlayer { get; init; }
     public int Amount { get; init; }
-
-    public PlayerSoldEventArgs(User winner, Player player, int amount)
-    {
-        Winner = winner;
-        SoldPlayer = player;
-        Amount = amount;
-    }
 }

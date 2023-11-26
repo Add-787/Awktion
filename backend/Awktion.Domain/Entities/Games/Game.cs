@@ -17,11 +17,13 @@ public class Game
 
 
     public event TickOccurredEventHandler OnTickOccurred;
+    public event PlayerSoldEventHandler OnPlayerSold;
     public event Action<User> OnUserPicking;
-    public event Action? OnBiddingStarted;
+    public event Action<Player> OnBiddingStarted;
+    public event Action<(User,int)> NewBidPlaced;
 
-    private Dictionary<int,PlayerStatus> _playerManager;
-    private Dictionary<string,UserStatus> _userManager;
+    private readonly Dictionary<int,PlayerStatus> _playerManager;
+    private readonly Dictionary<string,UserStatus> _userManager;
 
     private bool AllUsersOut { 
         get 
@@ -89,7 +91,6 @@ public class Game
 
     public void CreateRound()
     {
-        _roundBuilder.AddRoundNo();
         _roundBuilder.AddTimer(_settings.TimerMinutes);
         _round = _roundBuilder.GetRound();
 
@@ -117,15 +118,34 @@ public class Game
     {
         var bidSuccessful = _round.Bid(user,amount);
 
-        if(bidSuccessful && OtherHandsDown(user))
+        if(bidSuccessful)
         {
-            // Bid has been player and current 
-            // player has been sold.
+            if(OtherHandsDown(user))
+            {
+                // Bid has been player and current 
+                // player has been sold.
+                SellPlayer();
 
-
-
+            } else {
+                NewBidPlaced.Invoke((user,amount));
+            }
         }
+    }
 
+    private void SellPlayer()
+    {
+        var winner = _round.GetCurrentWinner();
+        var soldPlayer = _round.GetCurrentPlayer();
+        var highestBid = _round.GetHighestBid();
+
+        _squadManager.SpendAmount(winner!, highestBid);
+        _playerManager[soldPlayer.Id] = PlayerStatus.Sold;
+
+        OnPlayerSold.Invoke(this,new PlayerSoldEventArgs {
+            Winner = winner!,
+            SoldPlayer = soldPlayer,
+            Amount = highestBid
+        });
 
     }
 
@@ -147,7 +167,7 @@ public class Game
     public User GetSelectingUser()
     {
         var round = _round.GetCurrentRound();
-        return _users[round % _users.Count];
+        return _users[(round - 1) % _users.Count];
     }
 
     public void OnTimerFinished()
@@ -158,13 +178,12 @@ public class Game
         if(user is null)
         {
             // The player is unsold
-            _playerManager[picked.Id] = PlayerStatus.Unsold;
+            OnPlayerUnsold(picked!);
             return;
         }
 
         // The player has been sold
-        _squadManager.SpendAmount(user, _round.GetHighestBid());
-        _playerManager[picked.Id] = PlayerStatus.Sold;
+        SellPlayer();
 
     }
 
