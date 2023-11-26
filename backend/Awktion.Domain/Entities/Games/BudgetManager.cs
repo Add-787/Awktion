@@ -1,3 +1,5 @@
+using Awktion.Domain.Entities.Users;
+
 namespace Awktion.Domain.Entities.Games;
 
 /// <summary>

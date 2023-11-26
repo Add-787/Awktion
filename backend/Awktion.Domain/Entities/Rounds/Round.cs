@@ -2,6 +2,7 @@ using System.Diagnostics.Contracts;
 using System.Timers;
 using Awktion.Domain.Entities.Games.Handlers;
 using Awktion.Domain.Entities.Players;
+using Awktion.Domain.Entities.Users;
 using Timer = System.Timers.Timer;
 
 namespace Awktion.Domain.Entities.Rounds;
@@ -19,7 +20,7 @@ public class Round
     public event Action? OnBiddingStarted;
     public event TickOccurredEventHandler OnTickOccurred;
     public event Action? OnTimerFinished;
-    public event Action<Player>? OnPlayerUnSold;
+    public event Action<Player>? OnPlayerUnsold;
     private Timer? timer;
     public int Mins { get; set; }
 
@@ -105,15 +106,15 @@ public class Round
 
     public void AllHandsDown()
     {
-        ClearTimer();
+        RoundEnded();
 
         if(_picked != null)
         {
-            OnPlayerUnSold?.Invoke(_picked);
+            OnPlayerUnsold?.Invoke(_picked);
         }
     }
 
-    public void RoundEnded()
+    private void RoundEnded()
     {
         ClearTimer();
     }

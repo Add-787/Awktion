@@ -1,4 +1,4 @@
-namespace Awktion.Domain.Entities;
+namespace Awktion.Domain.Entities.Users;
 
 public class User
 {

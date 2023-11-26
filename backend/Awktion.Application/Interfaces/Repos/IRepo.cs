@@ -11,13 +11,3 @@ public interface IRepo<T>
     public Task<T> Add(T t);
     public Task Update(T t);
 }
-
-/// <summary>
-/// Exception that is thrown when element not found in repo.
-/// </summary>
-public class NotFoundException : Exception {}
-
-/// <summary>
-/// Exception thrown when element already exists in repo.
-/// </summary>
-public class AlreadyExistsException : Exception {}

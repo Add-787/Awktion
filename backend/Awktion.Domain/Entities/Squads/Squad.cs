@@ -5,9 +5,11 @@ namespace Awktion.Domain.Entities.Squads;
 public class Squad
 {
     private readonly Dictionary<int,int> _bids;
-    public Squad()
+    public int budget { get; set; }
+    public Squad(int total)
     {
         _bids = new();
+        budget = total;
     }
 
     public void AddPlayer(int playerId, int price)

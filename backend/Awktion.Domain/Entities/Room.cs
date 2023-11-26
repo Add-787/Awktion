@@ -1,4 +1,5 @@
 using Awktion.Domain.Common;
+using Awktion.Domain.Entities.Users;
 
 namespace Awktion.Domain.Entities;
 
